@@ -200,16 +200,3 @@ workflows:
       - windows_visualstudio_aws:
           context: circleci-server-image-builder
 
-  daily:
-    jobs:
-      - gc_old_gce_instances:
-          context: circleci-server-image-builder
-      - gc_old_ec2_instances:
-          context: circleci-server-image-builder
-    triggers:
-      - schedule:
-          cron: "17 12 * * *"
-          filters:
-            branches:
-              only:
-                - master
